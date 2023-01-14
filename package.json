@@ -10,11 +10,16 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@strapi/plugin-graphql": "^4.5.6",
     "@strapi/plugin-i18n": "4.5.6",
     "@strapi/plugin-users-permissions": "4.5.6",
     "@strapi/provider-upload-cloudinary": "^4.5.6",
     "@strapi/strapi": "4.5.6",
+    "graphql": "^15.5.0",
     "pg": "8.6.0"
+  },
+  "resolutions": {
+    "graphql": "^15.0.0"
   },
   "author": {
     "name": "A Strapi developer"
