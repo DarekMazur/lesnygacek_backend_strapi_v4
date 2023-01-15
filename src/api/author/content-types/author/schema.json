@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "authors",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "Categories",
+    "singularName": "author",
+    "pluralName": "authors",
+    "displayName": "Authors",
     "description": ""
   },
   "options": {
@@ -12,26 +12,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
+    "avatar": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "sign": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "posts": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::post.post",
-      "inversedBy": "categories"
+      "mappedBy": "author"
     }
   }
 }
