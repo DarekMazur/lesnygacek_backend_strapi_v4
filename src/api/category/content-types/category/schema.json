@@ -32,6 +32,16 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "inversedBy": "categories"
+    },
+    "defaultIcon": {
+      "type": "enumeration",
+      "enum": [
+        "tools",
+        "trips",
+        "thoughts",
+        "others"
+      ],
+      "required": false
     }
   }
 }

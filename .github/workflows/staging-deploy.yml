@@ -1,0 +1,22 @@
+name: Staging deploy
+on: workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      name: CD
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script:
+          cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
+          git fetch --all
+          git reset --hard origin/main
+          NODE_ENV=production npm run build
+          cd /var/www
+          pm2 restart lesnygacek
