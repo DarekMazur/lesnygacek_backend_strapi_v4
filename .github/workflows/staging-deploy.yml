@@ -20,5 +20,3 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             NODE_ENV=production npm run build
-            cd /var/www
-            pm2 restart lesnygacek
