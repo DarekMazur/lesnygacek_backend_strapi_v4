@@ -1,6 +1,8 @@
 name: Staging deploy
-on: workflow_dispatch:
-
+on:
+  workflow_dispatch:
+  push:
+    branches: main
 jobs:
   build:
     name: Build and deploy
@@ -13,10 +15,13 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script:
-          cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
+        script: cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
           git fetch --all
           git reset --hard origin/main
+          su -
+          cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
+          ${{ secrets.APASS }}
           NODE_ENV=production npm run build
+          su ${{ secrets.USERNAME }}
           cd /var/www
           pm2 restart lesnygacek
