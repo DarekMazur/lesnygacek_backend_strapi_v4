@@ -21,6 +21,7 @@ jobs:
             git fetch --all
             git reset --hard origin/main
             export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm install --lts
             NODE_ENV=production npm run build
             cd /var/www
