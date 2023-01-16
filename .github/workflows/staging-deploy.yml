@@ -2,7 +2,8 @@ name: Staging deploy
 on:
   workflow_dispatch:
   push:
-    branches: - main
+    branches:
+      - "main"
 jobs:
   build:
     name: Build and deploy
