@@ -19,10 +19,6 @@ jobs:
           script: cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
             git fetch --all
             git reset --hard origin/main
-            su -
-            cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
-            ${{ secrets.APASS }}
             NODE_ENV=production npm run build
-            su ${{ secrets.USERNAME }}
             cd /var/www
             pm2 restart lesnygacek
