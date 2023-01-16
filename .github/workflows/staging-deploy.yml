@@ -22,6 +22,6 @@ jobs:
             git reset --hard origin/main
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            /home/${{ secrets.USERNAME }}/.nvm/versions/node/v16.16.0/bin/npx run build
+            /home/${{ secrets.USERNAME }}/.nvm/versions/node/v16.16.0/bin/npm run build
             cd /var/www
             /home/${{ secrets.USERNAME }}/.nvm/versions/node/v16.16.0/bin/pm2 restart lesnygacek
