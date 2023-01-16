@@ -6,9 +6,7 @@ on:
 jobs:
   build:
     name: Build and deploy
-    runs-on: ubuntu-latest
-    steps:
-      name: CD
+    runs-on: ubu
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
