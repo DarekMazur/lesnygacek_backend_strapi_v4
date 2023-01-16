@@ -20,6 +20,8 @@ jobs:
             cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
             git fetch --all
             git reset --hard origin/main
+            export NVM_DIR="$HOME/.nvm"
+            nvm install --lts
             NODE_ENV=production npm run build
             cd /var/www
             pm2 restart lesnygacek
