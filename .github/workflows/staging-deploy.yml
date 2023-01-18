@@ -16,6 +16,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
+          envs: NODE_ENV=production
           script: |
             cd /var/www/board.lesnygacek.pl/html/lesnygacek_strapi
             git fetch --all
